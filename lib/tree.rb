@@ -2,12 +2,11 @@ class Tree
   attr_accessor :array, :root
 
   def initialize(array)
-    @array = array
+    @array = array.sort.uniq
     @root = root
   end
 
-  def build_tree(array)
-    array = array.sort.uniq
+  def build_tree
     n = array.length
 
     left_array = array[0..n/2-1]
