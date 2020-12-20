@@ -9,6 +9,14 @@ class Tree
   def build_tree
     n = array.length
 
+    # 1. Initialize start = 0, end = n - 1
+    # 2. mid = (start + end)/2
+    # 3. Create a tree node with mid as @root
+    # 4. Recursively:
+      # 4.1 Calculate mid of left subarray and make it root of left subtree
+      # 4.2 Calculate mid of right subarray and make it root of right subtree
+
+
     left_array = array[0..n/2-1]
     right_array = array[n/2+1..-1]
 
