@@ -1,11 +1,14 @@
 class Tree
-  attr_accessor :root
+  attr_accessor :array, :root
 
-  def initialize(array, root)
+  def initialize(array)
+    @array = array
     @root = root
   end
 
   def build_tree(array)
+    array = array.sort.uniq
+    return array
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)

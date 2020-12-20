@@ -1,5 +1,5 @@
 class Node
-  include 'Comparable'
+  include Comparable
   attr_accessor :value
 
   def initialize(value, left_child, right_child)
