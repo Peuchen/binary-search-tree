@@ -8,7 +8,12 @@ class Tree
 
   def build_tree(array)
     array = array.sort.uniq
-    @root = array[array.length/2]
+    n = array.length
+
+    left_array = array[0..n/2-1]
+    right_array = array[n/2+1..-1]
+
+    @root = Node.new(array[n/2], left_array, right_array)
 
     @root
   end
