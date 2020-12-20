@@ -8,7 +8,9 @@ class Tree
 
   def build_tree(array)
     array = array.sort.uniq
-    return array
+    @root = array[array.length/2]
+
+    @root
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
