@@ -1,17 +1,22 @@
 class Tree
-  attr_accessor :array, :root
+  attr_accessor :array, :root, :first, :last
 
   def initialize(array)
     @array = array.sort.uniq
     @root = root
   end
 
-  def build_tree
-    first = 0
-    last = array.length - 1
+  def build_tree(array, first = 0, last = array.length - 1)
+    return nil if first > last
+
     mid = (first + last) / 2
 
     @root = Node.new(array[mid])
+
+    @root.left = build_tree(array, first, mid-1)
+    @root.right = build_tree(array, mid+1, last)
+
+    @root
 
     # 1. Initialize start = 0, end = n - 1
     # 2. mid = (start + end)/2
@@ -23,7 +28,7 @@ class Tree
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
-    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.data}"
+    puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
     pretty_print(node.left, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left
   end
 
