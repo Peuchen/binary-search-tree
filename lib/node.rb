@@ -5,8 +5,8 @@ class Node
   def initialize(value)
     @value = value
 
-    @left = left
-    @right = right
+    @left = nil
+    @right = nil
   end
 
   def <=>(other_node)
