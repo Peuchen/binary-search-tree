@@ -1,29 +1,21 @@
 class Tree
-  attr_accessor :array, :root, :first, :last
+  attr_reader :data, :root
 
   def initialize(array)
-    @array = array.sort.uniq
-    @root = root
+    @data = array.sort.uniq
+    @root = build_tree(data)
   end
 
-  def build_tree(array, first = 0, last = array.length - 1)
-    return nil if first > last
+  def build_tree(array)
+    return nil if array.empty?
 
-    mid = (first + last) / 2
+    mid = array.length / 2
 
-    @root = Node.new(array[mid])
+    node = Node.new(array[mid])
+    node.left = build_tree(array[0...mid])
+    node.right = build_tree(array[(mid+1)..-1])
 
-    @root.left = build_tree(array, first, mid-1)
-    @root.right = build_tree(array, mid+1, last)
-
-    @root
-
-    # 1. Initialize start = 0, end = n - 1
-    # 2. mid = (start + end)/2
-    # 3. Create a tree node with mid as @root
-    # 4. Recursively:
-      # 4.1 Calculate mid of left subarray and make it root of left subtree
-      # 4.2 Calculate mid of right subarray and make it root of right subtree
+    node
   end
 
   def pretty_print(node = @root, prefix = '', is_left = true)
