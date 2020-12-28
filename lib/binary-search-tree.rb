@@ -11,3 +11,8 @@ tree.insert(12)
 
 puts "AFTER INSERTION"
 tree.pretty_print
+
+tree.delete(12)
+
+puts "AFTER DELETION"
+tree.pretty_print
