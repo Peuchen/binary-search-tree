@@ -55,8 +55,11 @@ class Tree
         delete_node_with_right_child(node, previous)
       elsif node.right.nil?
         delete_node_with_left_child(node, previous)
+      else
+        delete_node_with_two_children(node, previous)
       end
     end
+    node
   end
 
   def delete_node_without_children(node, previous)
@@ -81,6 +84,20 @@ class Tree
     else
       previous.right = node.left
     end
+  end
+
+  def delete_node_with_two_children(node, previous)
+    temp = lowest_subtree_value(node.right)
+    node.value = temp.value
+    node.right = delete(temp.value, node.right)
+  end
+
+  def lowest_subtree_value(node = root)
+    current_node = node
+    while current_node && current_node.left.nil? == false
+      current_node = current_node.left
+    end
+    current_node
   end
 
   def pretty_print(node = root, prefix = '', is_left = true)
