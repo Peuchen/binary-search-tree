@@ -52,11 +52,9 @@ class Tree
       if node.left.nil? && node.right.nil?
         delete_node_without_children(node, previous)
       elsif node.left.nil?
-        node = node.right
-        node
+        delete_node_with_right_child(node, previous)
       elsif node.right.nil?
-        node = node.left
-        node
+        delete_node_with_left_child(node, previous)
       end
     end
   end
@@ -66,6 +64,22 @@ class Tree
       previous.left = nil
     else
       previous.right = nil
+    end
+  end
+
+  def delete_node_with_right_child(node, previous)
+    if previous.left.nil? == false && previous.left.value == node.value
+      previous.left = node.right
+    else
+      previous.right = node.right
+    end
+  end
+
+  def delete_node_with_left_child(node, previous)
+    if previous.left.nil? == false && previous.left.value == node.value
+      previous.left = node.left
+    else
+      previous.right = node.left
     end
   end
 
