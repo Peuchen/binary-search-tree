@@ -39,17 +39,18 @@ class Tree
     node
   end
 
-  def delete(value, node = root)
+  def delete(value, node = root, previous = root)
     return node if node.nil?
 
     if value < node.value
-      delete(value, node.left)
+      previous = node
+      delete(value, node.left, previous)
     elsif value > node.value
-      delete(value, node.right)
+      previous = node
+      delete(value, node.right, previous)
     else
       if node.left.nil? && node.right.nil?
-        node.value = nil
-        node
+        delete_node_without_children(node, previous)
       elsif node.left.nil?
         node = node.right
         node
@@ -57,6 +58,14 @@ class Tree
         node = node.left
         node
       end
+    end
+  end
+
+  def delete_node_without_children(node, previous)
+    if previous.left.nil? == false && previous.left.value == node.value
+      previous.left = nil
+    else
+      previous.right = nil
     end
   end
 

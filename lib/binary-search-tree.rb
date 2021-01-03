@@ -12,7 +12,7 @@ tree.insert(12)
 puts "AFTER INSERTION"
 tree.pretty_print
 
-tree.delete(12)
+tree.delete(9)
 
 puts "AFTER DELETION"
 tree.pretty_print
