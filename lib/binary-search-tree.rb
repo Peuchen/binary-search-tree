@@ -18,3 +18,5 @@ puts "AFTER DELETION"
 tree.pretty_print
 
 p tree.find(5)
+
+p tree.level_order
