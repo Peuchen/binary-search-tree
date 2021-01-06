@@ -171,7 +171,6 @@ class Tree
   def height(value, n = 0)
     node = find(value)
 
-
     if !(node.left.nil?)
       n += 1
       height(node.left.value, n)
@@ -193,6 +192,18 @@ class Tree
       return a
     else
       return b
+    end
+  end
+
+  def depth(value, node = root, level = 0)
+    if value < node.value
+      level += 1
+      depth(value, node.left, level)
+    elsif value > node.value
+      level += 1
+      depth(value, node.right, level)
+    else
+      level
     end
   end
 
