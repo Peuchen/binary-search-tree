@@ -131,14 +131,13 @@ class Tree
   #   return if node.nil?
   #   queue << node
 
-  #   until queue.empty?
-  #     current = queue.first
-  #     queue.shift
-  #     output << current.value
+  #   current = queue.first
+  #   queue.shift
+  #   output << current.value
 
-  #     queue << current.left unless current.left.nil?
-  #     queue << current.right unless current.right.nil?
-  #   end
+  #     rec_level_order(current.left, queue, output) unless current.left.nil?
+  #     rec_level_order(current.right, queue, output)  unless current.right.nil?
+
 
   #   output
   # end
@@ -168,6 +167,20 @@ class Tree
     output << node.value
 
     output
+  end
+
+  def height(value, n = 0)
+    node = find(value)
+
+    if !(node.left.nil?)
+      n += 1
+      height(node.left.value, n)
+    elsif !(node.right.nil?)
+      n += 1
+      height(node.right.value, n)
+    else
+      return n
+    end
   end
 
   def pretty_print(node = root, prefix = '', is_left = true)
