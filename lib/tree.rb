@@ -207,6 +207,12 @@ class Tree
     end
   end
 
+  def rebalance
+    array = self.level_order
+    rebalanced_tree = Tree.new(array)
+    rebalanced_tree.pretty_print
+  end
+
   def pretty_print(node = root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
