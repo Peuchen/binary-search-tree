@@ -170,7 +170,7 @@ class Tree
 
   def height(node)
     node = find(node) if node.is_a? Numeric
-    return 0 if node.nil?
+    return -1 if node.nil?
     return find_max(height(node.left), height(node.right)) + 1
   end
 
