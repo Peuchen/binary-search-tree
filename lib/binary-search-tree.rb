@@ -19,4 +19,7 @@ tree.pretty_print
 
 p tree.find(5)
 
-p tree.level_order
+puts "Level order: #{tree.level_order}"
+puts "Inorder: #{tree.inorder}"
+puts "Preorder: #{tree.preorder}"
+puts "Postorder: #{tree.postorder}"
