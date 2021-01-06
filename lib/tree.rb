@@ -110,7 +110,6 @@ class Tree
     end
   end
 
-
   def level_order(node = root, queue = [], output = [])
     return if node.nil?
     queue << node
@@ -172,6 +171,7 @@ class Tree
   def height(value, n = 0)
     node = find(value)
 
+
     if !(node.left.nil?)
       n += 1
       height(node.left.value, n)
@@ -180,6 +180,19 @@ class Tree
       height(node.right.value, n)
     else
       return n
+    end
+  end
+
+  def find_height(node = root)
+    return 0 if node.nil?
+    return find_max(find_height(node.left), find_height(node.right)) + 1
+  end
+
+  def find_max(a, b)
+    if a >= b
+      return a
+    else
+      return b
     end
   end
 
