@@ -20,6 +20,13 @@ tree.pretty_print
 p tree.find(5)
 
 puts "Level order: #{tree.level_order}"
+#puts "Rec Level order: #{tree.rec_level_order}"
+
 puts "Inorder: #{tree.inorder}"
 puts "Preorder: #{tree.preorder}"
 puts "Postorder: #{tree.postorder}"
+
+p tree.find_height
+p tree.depth(12)
+
+p tree.height(5)
