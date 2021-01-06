@@ -168,23 +168,10 @@ class Tree
     output
   end
 
-  def height(value, n = 0)
-    node = find(value)
-
-    if !(node.left.nil?)
-      n += 1
-      height(node.left.value, n)
-    elsif !(node.right.nil?)
-      n += 1
-      height(node.right.value, n)
-    else
-      return n
-    end
-  end
-
-  def find_height(node = root)
+  def height(node)
+    node = find(node) if node.is_a? Numeric
     return 0 if node.nil?
-    return find_max(find_height(node.left), find_height(node.right)) + 1
+    return find_max(height(node.left), height(node.right)) + 1
   end
 
   def find_max(a, b)
