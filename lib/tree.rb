@@ -143,6 +143,33 @@ class Tree
   #   output
   # end
 
+  def inorder(node = root, output = [])
+    return if node.nil?
+    inorder(node.left, output) unless node.left.nil?
+    output << node.value
+    inorder(node.right, output) unless node.right.nil?
+
+    output
+  end
+
+  def preorder(node = root, output = [])
+    return if node.nil?
+    output << node.value
+    preorder(node.left, output) unless node.left.nil?
+    preorder(node.right, output) unless node.right.nil?
+
+    output
+  end
+
+  def postorder(node = root, output = [])
+    return if node.nil?
+    postorder(node.left, output) unless node.left.nil?
+    postorder(node.right, output) unless node.right.nil?
+    output << node.value
+
+    output
+  end
+
   def pretty_print(node = root, prefix = '', is_left = true)
     pretty_print(node.right, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right
     puts "#{prefix}#{is_left ? '└── ' : '┌── '}#{node.value}"
