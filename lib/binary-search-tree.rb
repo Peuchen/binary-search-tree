@@ -26,7 +26,5 @@ puts "Inorder: #{tree.inorder}"
 puts "Preorder: #{tree.preorder}"
 puts "Postorder: #{tree.postorder}"
 
-p tree.find_height
-p tree.depth(12)
-
-p tree.height(5)
+p tree.height(12)
+p tree.depth(8)
