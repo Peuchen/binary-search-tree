@@ -21,7 +21,6 @@ tree.pretty_print
 p tree.find(5)
 
 puts "Level order: #{tree.level_order}"
-#puts "Rec Level order: #{tree.rec_level_order}"
 
 puts "Inorder: #{tree.inorder}"
 puts "Preorder: #{tree.preorder}"

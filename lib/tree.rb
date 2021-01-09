@@ -126,21 +126,6 @@ class Tree
     output
   end
 
-  # def rec_level_order(node = root, queue = [], output = [])
-  #   return if node.nil?
-  #   queue << node
-
-  #   current = queue.first
-  #   queue.shift
-  #   output << current.value
-
-  #     rec_level_order(current.left, queue, output) unless current.left.nil?
-  #     rec_level_order(current.right, queue, output)  unless current.right.nil?
-
-
-  #   output
-  # end
-
   def inorder(node = root, output = [])
     return if node.nil?
     inorder(node.left, output) unless node.left.nil?
