@@ -8,6 +8,7 @@ puts "BEFORE INSERTION"
 tree.pretty_print
 
 tree.insert(12)
+tree.insert(13)
 
 puts "AFTER INSERTION"
 tree.pretty_print
@@ -28,3 +29,6 @@ puts "Postorder: #{tree.postorder}"
 
 p tree.height(12)
 p tree.depth(8)
+
+p tree.balanced?
+tree.rebalance
