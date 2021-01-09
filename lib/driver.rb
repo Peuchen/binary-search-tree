@@ -26,6 +26,7 @@ puts "Balanced? #{tree.balanced?}"
 
 # 6. Balance the tree by calling `#rebalance`
 tree.rebalance
+tree.pretty_print
 
 # 7. Confirm that the tree is balanced by calling `#balanced?`
 puts "Balanced? #{tree.balanced?}"
