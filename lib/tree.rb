@@ -194,6 +194,16 @@ class Tree
     end
   end
 
+  def balanced?(node = root)
+    if (height(node.left) - height(node.right)).between?(-1, 1)
+      balanced?(node.left) unless node.left.nil?
+      balanced?(node.right) unless node.right.nil?
+      return true
+    else
+      return false
+    end
+  end
+
   def rebalance
     array = self.level_order
     rebalanced_tree = Tree.new(array)
