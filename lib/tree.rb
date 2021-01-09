@@ -1,5 +1,5 @@
 class Tree
-  attr_reader :data, :root
+  attr_accessor :data, :root
 
   def initialize(array = [])
     @data = array.sort.uniq
@@ -206,8 +206,8 @@ class Tree
 
   def rebalance
     array = self.level_order
-    rebalanced_tree = Tree.new(array)
-    rebalanced_tree.pretty_print
+    self.data = array.sort.uniq
+    self.root = build_tree(data)
   end
 
   def pretty_print(node = root, prefix = '', is_left = true)
